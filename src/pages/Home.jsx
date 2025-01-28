@@ -16,7 +16,7 @@ export default function Home() {
     queryKey: ['users', searchQuery],
     queryFn: async () => {
       if (!searchQuery) return [];
-      const response = await axios.get(`http://localhost:5000/api/users/search?query=${searchQuery}`);
+      const response = await axios.get(`https://friend-connect-backend.onrender.com/api/users/search?query=${searchQuery}`);
       return response.data;
     },
     enabled: !!searchQuery && isAuthenticated,

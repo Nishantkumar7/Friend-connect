@@ -8,7 +8,7 @@ export default function FriendRequests() {
   const { data: requests, isLoading } = useQuery({
     queryKey: ['friendRequests'],
     queryFn: async () => {
-      const response = await axios.get('http://localhost:5000/api/friends/requests');
+      const response = await axios.get('https://friend-connect-backend.onrender.com/api/friends/requests');
       return response.data;
     },
   });

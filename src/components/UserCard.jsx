@@ -15,7 +15,7 @@ export default function UserCard({
 
   const sendFriendRequest = useMutation({
     mutationFn: async () => {
-      await axios.post(`http://localhost:5000/api/friends/request/${user._id}`);
+      await axios.post(`https://friend-connect-backend.onrender.com/api/friends/request/${user._id}`);
     },
     onSuccess: () => {
       toast.success('Friend request sent!');
@@ -28,7 +28,7 @@ export default function UserCard({
 
   const respondToRequest = useMutation({
     mutationFn: async ({ status }) => {
-      await axios.post(`http://localhost:5000/api/friends/respond/${requestId}`, { status });
+      await axios.post(`https://friend-connect-backend.onrender.com/api/friends/respond/${requestId}`, { status });
     },
     onSuccess: (_, { status }) => {
       toast.success(`Friend request ${status}!`);
@@ -42,7 +42,7 @@ export default function UserCard({
 
   const removeFriend = useMutation({
     mutationFn: async () => {
-      await axios.delete(`http://localhost:5000/api/friends/${user._id}`);
+      await axios.delete(`https://friend-connect-backend.onrender.com/api/friends/${user._id}`);
     },
     onSuccess: () => {
       toast.success('Friend removed');
